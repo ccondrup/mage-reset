@@ -1,4 +1,5 @@
--- Reset Magento testdata --
+-- Reset Magento increment IDs --
+-- Backup your database before executing these commands
 -- Credits: Elias Interactive http://goo.gl/E03d5 & ChiliPepperDesign http://goo.gl/FcWGx
 -- Merged and compiled by ccondrup for CCData.no
 
@@ -7,7 +8,7 @@
 SET @id_store := '3';			-- The id of the Mage store you wish to change. Run this script for each store.
 SET @id_prefix := NULL;			-- Prefix for new numbers, alphanumeric is OK, NULL or numeric preferrable
 SET @nr_padding := 5;			-- How many digits follow after nr_prefix? Mage default 8
-SET @nr_orderid := 10101;		-- Next order id. Match padlength! Mage default 00000001 = 8 digits, means @nr_padding should be 8.
+SET @nr_orderid := 10101;		-- Next id for orders, shipment etc. Match padlength! Mage default 00000001 = 8 digits, means @nr_padding should be 8.
 -- These preselected values will result in next order having id #310102 --
 -- End config section. No need to edit below --
 

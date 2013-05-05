@@ -1,4 +1,5 @@
 -- Reset data for misc. Mage addons
+-- Backup your database before executing these commands
 -- Merged and compiled by ccondrup for CCData.no
 
 SET FOREIGN_KEY_CHECKS = 0;

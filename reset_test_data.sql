@@ -1,4 +1,5 @@
 -- Reset Magento testdata --
+-- Backup your database before executing these commands
 -- Credits: Elias Interactive http://goo.gl/E03d5 & ChiliPepperDesign http://goo.gl/FcWGx
 -- Merged and compiled by ccondrup for CCData.no
 
@@ -203,7 +204,9 @@ DELETE FROM `eav_entity_store`
 	WHERE entity_type_id IN (
 		SELECT entity_type_id
 		FROM `eav_entity_type`
-		WHERE entity_type_code IN ('order', 'invoice', 'creditmemo', 'shipment')
+		WHERE entity_type_code IN (
+			'order', 'invoice', 'creditmemo', 'shipment'
+		)
 );
 
 -- Reset report data

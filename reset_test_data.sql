@@ -1,223 +1,159 @@
--- Reset Magento testdata --
--- Backup your database before executing these commands
+-- Resets testdata for Magento --
+-- This will delete data - make sure you have backups!
 -- Credits: Elias Interactive http://goo.gl/E03d5 & ChiliPepperDesign http://goo.gl/FcWGx
 -- Merged and compiled by ccondrup for CCData.no
 
 SET FOREIGN_KEY_CHECKS = 0;
 SET NAMES utf8; -- Make sure to preserve Unicode characters outside Basic Multilingual Plane (Æ,ö, etc etc.)
 
--- Reset customer generated data
+-- Mark those pesky notifications as read
 UPDATE `adminnotification_inbox` SET is_read=1;
-TRUNCATE `catalogsearch_query`;
-TRUNCATE `catalogsearch_result`;
-TRUNCATE `catalog_compare_item`;
-TRUNCATE `customer_address_entity`;
-TRUNCATE `customer_address_entity_datetime`;
-TRUNCATE `customer_address_entity_decimal`;
-TRUNCATE `customer_address_entity_int`;
-TRUNCATE `customer_address_entity_text`;
-TRUNCATE `customer_address_entity_varchar`;
-TRUNCATE `customer_entity`;
-TRUNCATE `customer_entity_datetime`;
-TRUNCATE `customer_entity_decimal`;
-TRUNCATE `customer_entity_int`;
-TRUNCATE `customer_entity_text`;
-TRUNCATE `customer_entity_varchar`;
-TRUNCATE `downloadable_link_purchased`;
-TRUNCATE `downloadable_link_purchased_item`;
-TRUNCATE `log_customer`;
-TRUNCATE `log_quote`;
-TRUNCATE `log_summary`;
-TRUNCATE `log_summary_type`;
-TRUNCATE `log_url`;
-TRUNCATE `log_url_info`;
-TRUNCATE `log_visitor`;
-TRUNCATE `log_visitor_info`;
-TRUNCATE `log_visitor_online`;
-TRUNCATE `newsletter_queue`;
-TRUNCATE `newsletter_queue_link`;
-TRUNCATE `newsletter_queue_store_link`;
-TRUNCATE `newsletter_subscriber`;
-TRUNCATE `rating_option`;
-TRUNCATE `rating_option_vote`;
-TRUNCATE `rating_option_vote_aggregated`;
-TRUNCATE `rating_store`;
-TRUNCATE `rating_title`;
-TRUNCATE `report_compared_product_index`;
-TRUNCATE `report_event`;
-TRUNCATE `report_viewed_product_index`;
-TRUNCATE `review`;
-TRUNCATE `review_detail`;
-TRUNCATE `review_entity_summary`;
-TRUNCATE `review_store`;
-TRUNCATE `salesrule_coupon_usage`;
-TRUNCATE `salesrule_customer`;
-TRUNCATE `sales_bestsellers_aggregated_daily`;
-TRUNCATE `sales_bestsellers_aggregated_monthly`;
-TRUNCATE `sales_bestsellers_aggregated_yearly`;
-TRUNCATE `sales_billing_agreement`;
-TRUNCATE `sales_billing_agreement_order`;
-TRUNCATE `sales_flat_creditmemo`;
-TRUNCATE `sales_flat_creditmemo_comment`;
-TRUNCATE `sales_flat_creditmemo_grid`;
-TRUNCATE `sales_flat_creditmemo_item`;
-TRUNCATE `sales_flat_invoice`;
-TRUNCATE `sales_flat_invoice_comment`;
-TRUNCATE `sales_flat_invoice_grid`;
-TRUNCATE `sales_flat_invoice_item`;
-TRUNCATE `sales_flat_order`;
-TRUNCATE `sales_flat_order_address`;
-TRUNCATE `sales_flat_order_grid`;
-TRUNCATE `sales_flat_order_item`;
-TRUNCATE `sales_flat_order_payment`;
-TRUNCATE `sales_flat_order_status_history`;
-TRUNCATE `sales_flat_quote`;
-TRUNCATE `sales_flat_quote_address`;
-TRUNCATE `sales_flat_quote_address_item`;
-TRUNCATE `sales_flat_quote_item`;
-TRUNCATE `sales_flat_quote_item_option`;
-TRUNCATE `sales_flat_quote_payment`;
-TRUNCATE `sales_flat_quote_shipping_rate`;
-TRUNCATE `sales_flat_shipment`;
-TRUNCATE `sales_flat_shipment_comment`;
-TRUNCATE `sales_flat_shipment_grid`;
-TRUNCATE `sales_flat_shipment_item`;
-TRUNCATE `sales_flat_shipment_track`;
-TRUNCATE `sales_invoiced_aggregated`;
-TRUNCATE `sales_invoiced_aggregated_order`;
-TRUNCATE `sales_order_aggregated_created`;
-TRUNCATE `sales_order_aggregated_updated`;
-TRUNCATE `sales_order_tax`;
-TRUNCATE `sales_payment_transaction`;
-TRUNCATE `sales_recurring_profile`;
-TRUNCATE `sales_recurring_profile_order`;
-TRUNCATE `sales_refunded_aggregated`;
-TRUNCATE `sales_refunded_aggregated_order`;
-TRUNCATE `sales_shipping_aggregated`;
-TRUNCATE `sales_shipping_aggregated_order`;
-TRUNCATE `sendfriend_log`;
-TRUNCATE `tag`;
-TRUNCATE `tag_relation`;
-TRUNCATE `tag_summary`;
-TRUNCATE `wishlist`;
-TRUNCATE `wishlist_item`;
-TRUNCATE `wishlist_item_option`;
-
-
-ALTER TABLE `catalogsearch_query` AUTO_INCREMENT=1;
-ALTER TABLE `catalogsearch_result` AUTO_INCREMENT=1;
-ALTER TABLE `catalog_compare_item` AUTO_INCREMENT=1;
-ALTER TABLE `customer_address_entity` AUTO_INCREMENT=1;
-ALTER TABLE `customer_address_entity_datetime` AUTO_INCREMENT=1;
-ALTER TABLE `customer_address_entity_decimal` AUTO_INCREMENT=1;
-ALTER TABLE `customer_address_entity_int` AUTO_INCREMENT=1;
-ALTER TABLE `customer_address_entity_text` AUTO_INCREMENT=1;
-ALTER TABLE `customer_address_entity_varchar` AUTO_INCREMENT=1;
-ALTER TABLE `customer_entity` AUTO_INCREMENT=1;
-ALTER TABLE `customer_entity_datetime` AUTO_INCREMENT=1;
-ALTER TABLE `customer_entity_decimal` AUTO_INCREMENT=1;
-ALTER TABLE `customer_entity_int` AUTO_INCREMENT=1;
-ALTER TABLE `customer_entity_text` AUTO_INCREMENT=1;
-ALTER TABLE `customer_entity_varchar` AUTO_INCREMENT=1;
-ALTER TABLE `downloadable_link_purchased` AUTO_INCREMENT=1;
-ALTER TABLE `downloadable_link_purchased_item` AUTO_INCREMENT=1;
-ALTER TABLE `log_customer` AUTO_INCREMENT=1;
-ALTER TABLE `log_quote` AUTO_INCREMENT=1;
-ALTER TABLE `log_summary` AUTO_INCREMENT=1;
-ALTER TABLE `log_summary_type` AUTO_INCREMENT=1;
-ALTER TABLE `log_url` AUTO_INCREMENT=1;
-ALTER TABLE `log_url_info` AUTO_INCREMENT=1;
-ALTER TABLE `log_visitor` AUTO_INCREMENT=1;
-ALTER TABLE `log_visitor_info` AUTO_INCREMENT=1;
-ALTER TABLE `log_visitor_online` AUTO_INCREMENT=1;
-ALTER TABLE `newsletter_queue` AUTO_INCREMENT=1;
-ALTER TABLE `newsletter_queue_link` AUTO_INCREMENT=1;
-ALTER TABLE `newsletter_queue_store_link` AUTO_INCREMENT=1;
-ALTER TABLE `newsletter_subscriber` AUTO_INCREMENT=1;
-ALTER TABLE `rating_option` AUTO_INCREMENT=1;
-ALTER TABLE `rating_option_vote` AUTO_INCREMENT=1;
-ALTER TABLE `rating_option_vote_aggregated` AUTO_INCREMENT=1;
-ALTER TABLE `rating_store` AUTO_INCREMENT=1;
-ALTER TABLE `rating_title` AUTO_INCREMENT=1;
-ALTER TABLE `report_compared_product_index` AUTO_INCREMENT=1;
-ALTER TABLE `report_event` AUTO_INCREMENT=1;
-ALTER TABLE `report_viewed_product_index` AUTO_INCREMENT=1;
-ALTER TABLE `review` AUTO_INCREMENT=1;
-ALTER TABLE `review_detail` AUTO_INCREMENT=1;
-ALTER TABLE `review_entity_summary` AUTO_INCREMENT=1;
-ALTER TABLE `review_store` AUTO_INCREMENT=1;
-ALTER TABLE `salesrule_coupon_usage` AUTO_INCREMENT=1;
-ALTER TABLE `salesrule_customer` AUTO_INCREMENT=1;
-ALTER TABLE `sales_bestsellers_aggregated_daily` AUTO_INCREMENT=1;
-ALTER TABLE `sales_bestsellers_aggregated_monthly` AUTO_INCREMENT=1;
-ALTER TABLE `sales_bestsellers_aggregated_yearly` AUTO_INCREMENT=1;
-ALTER TABLE `sales_billing_agreement` AUTO_INCREMENT=1;
-ALTER TABLE `sales_billing_agreement_order` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_creditmemo` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_creditmemo_comment` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_creditmemo_grid` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_creditmemo_item` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_invoice` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_invoice_comment` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_invoice_grid` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_invoice_item` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_order` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_order_address` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_order_grid` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_order_item` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_order_payment` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_order_status_history` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote_address` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote_address_item` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote_item` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote_item_option` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote_payment` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_quote_shipping_rate` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_shipment` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_shipment_comment` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_shipment_grid` AUTO_INCREMENT=1;
-ALTER TABLE `sales_flat_shipment_item` AUTO_INCREMENT=1;;
-ALTER TABLE `sales_flat_shipment_track` AUTO_INCREMENT=1;
-ALTER TABLE `sales_invoiced_aggregated` AUTO_INCREMENT=1;
-ALTER TABLE `sales_invoiced_aggregated_order` AUTO_INCREMENT=1;
-ALTER TABLE `sales_order_aggregated_created` AUTO_INCREMENT=1;
-ALTER TABLE `sales_order_aggregated_updated` AUTO_INCREMENT=1;
-ALTER TABLE `sales_order_tax` AUTO_INCREMENT=1;
-ALTER TABLE `sales_payment_transaction` AUTO_INCREMENT=1;
-ALTER TABLE `sales_recurring_profile` AUTO_INCREMENT=1;
-ALTER TABLE `sales_recurring_profile_order` AUTO_INCREMENT=1;
-ALTER TABLE `sales_refunded_aggregated` AUTO_INCREMENT=1;
-ALTER TABLE `sales_refunded_aggregated_order` AUTO_INCREMENT=1;
-ALTER TABLE `sales_shipping_aggregated` AUTO_INCREMENT=1;
-ALTER TABLE `sales_shipping_aggregated_order` AUTO_INCREMENT=1;
-ALTER TABLE `sendfriend_log` AUTO_INCREMENT=1;
-ALTER TABLE `tag` AUTO_INCREMENT=1;
-ALTER TABLE `tag_relation` AUTO_INCREMENT=1;
-ALTER TABLE `tag_summary` AUTO_INCREMENT=1;
-ALTER TABLE `wishlist` AUTO_INCREMENT=1;
-ALTER TABLE `wishlist_item` AUTO_INCREMENT=1;
-ALTER TABLE `wishlist_item_option` AUTO_INCREMENT=1;
-
--- Reset order data
-DELETE FROM `eav_entity_store`
-	WHERE entity_type_id IN (
-		SELECT entity_type_id
-		FROM `eav_entity_type`
-		WHERE entity_type_code IN (
-			'order', 'invoice', 'creditmemo', 'shipment'
-		)
-);
 
 -- Reset report data
 DELETE FROM `report_event`
-	WHERE event_type_id IN (
-		SELECT event_type_id
-		FROM `report_event_types`
-		WHERE event_name IN (
-			'catalog_product_view', 'sendfriend_product', 'catalog_product_compare_add_product',
-			'checkout_cart_add_product', 'wishlist_add_product', 'wishlist_share'
-		)
+WHERE event_type_id IN (
+	SELECT event_type_id
+	FROM `report_event_types`
+	WHERE event_name IN (
+		'catalog_product_view', 'sendfriend_product', 'catalog_product_compare_add_product',
+		'checkout_cart_add_product', 'wishlist_add_product', 'wishlist_share'
+	)
 );
+
+-- Create a tmp table to hold the names of tables we want to service
+DROP TEMPORARY TABLE IF EXISTS `tmp_trunctables`;
+CREATE TEMPORARY TABLE IF NOT EXISTS `tmp_trunctables` (
+  `tname` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- List of tables to both truncate and set incrementid=1
+INSERT INTO `tmp_trunctables` VALUES
+	('catalogsearch_query'),
+	('catalogsearch_result'),
+	('catalog_compare_item'),
+	('customer_address_entity'),
+	('customer_address_entity_datetime'),
+	('customer_address_entity_decimal'),
+	('customer_address_entity_int'),
+	('customer_address_entity_text'),
+	('customer_address_entity_varchar'),
+	('customer_entity'),
+	('customer_entity_datetime'),
+	('customer_entity_decimal'),
+	('customer_entity_int'),
+	('customer_entity_text'),
+	('customer_entity_varchar'),
+	('downloadable_link_purchased'),
+	('downloadable_link_purchased_item'),
+	('log_customer'),
+	('log_quote'),
+	('log_summary'),
+	('log_summary_type'),
+	('log_url'),
+	('log_url_info'),
+	('log_visitor'),
+	('log_visitor_info'),
+	('log_visitor_online'),
+	('newsletter_queue'),
+	('newsletter_queue_link'),
+	('newsletter_queue_store_link'),
+	('newsletter_subscriber'),
+	('rating_option'),
+	('rating_option_vote'),
+	('rating_option_vote_aggregated'),
+	('rating_store'),
+	('rating_title'),
+	('report_compared_product_index'),
+	('report_event'),
+	('report_viewed_product_index'),
+	('review'),
+	('review_detail'),
+	('review_entity_summary'),
+	('review_store'),
+	('salesrule_coupon_usage'),
+	('salesrule_customer'),
+	('sales_bestsellers_aggregated_daily'),
+	('sales_bestsellers_aggregated_monthly'),
+	('sales_bestsellers_aggregated_yearly'),
+	('sales_billing_agreement'),
+	('sales_billing_agreement_order'),
+	('sales_flat_creditmemo'),
+	('sales_flat_creditmemo_comment'),
+	('sales_flat_creditmemo_grid'),
+	('sales_flat_creditmemo_item'),
+	('sales_flat_invoice'),
+	('sales_flat_invoice_comment'),
+	('sales_flat_invoice_grid'),
+	('sales_flat_invoice_item'),
+	('sales_flat_order'),
+	('sales_flat_order_address'),
+	('sales_flat_order_grid'),
+	('sales_flat_order_item'),
+	('sales_flat_order_payment'),
+	('sales_flat_order_status_history'),
+	('sales_flat_quote'),
+	('sales_flat_quote_address'),
+	('sales_flat_quote_address_item'),
+	('sales_flat_quote_item'),
+	('sales_flat_quote_item_option'),
+	('sales_flat_quote_payment'),
+	('sales_flat_quote_shipping_rate'),
+	('sales_flat_shipment'),
+	('sales_flat_shipment_comment'),
+	('sales_flat_shipment_grid'),
+	('sales_flat_shipment_item'),
+	('sales_flat_shipment_track'),
+	('sales_invoiced_aggregated'),
+	('sales_invoiced_aggregated_order'),
+	('sales_order_aggregated_created'),
+	('sales_order_aggregated_updated'),
+	('sales_order_tax'),
+	('sales_payment_transaction'),
+	('sales_recurring_profile'),
+	('sales_recurring_profile_order'),
+	('sales_refunded_aggregated'),
+	('sales_refunded_aggregated_order'),
+	('sales_shipping_aggregated'),
+	('sales_shipping_aggregated_order'),
+	('sendfriend_log'),
+	('tag'),
+	('tag_relation'),
+	('tag_summary'),
+	('wishlist'),
+	('wishlist_item'),
+	('wishlist_item_option')
+;
+
+-- This is the sproc which runs through the tmp table and truncates
+DELIMITER ||
+DROP PROCEDURE IF EXISTS `ccdata_empty_testdata`||
+
+CREATE PROCEDURE ccdata_empty_testdata ()
+MODIFIES SQL DATA
+BEGIN
+	DECLARE t1 VARCHAR(100);
+	DECLARE done INT;
+	DECLARE cur_1 CURSOR FOR SELECT tname FROM `tmp_trunctables` WHERE 1;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+	OPEN cur_1;
+	REPEAT
+		FETCH cur_1 INTO t1;
+
+		SET @sql1 = CONCAT('TRUNCATE ', t1, ';');
+		PREPARE s1 from @sql1;
+		EXECUTE s1;
+
+		SET @sql2 = CONCAT('ALTER TABLE ', t1, ' AUTO_INCREMENT=1;');
+		PREPARE s2 from @sql2;
+		EXECUTE s2;
+
+		UNTIL done = 1
+	END REPEAT;
+	CLOSE cur_1;
+END;||
+
+CALL ccdata_empty_testdata()||
+DROP PROCEDURE IF EXISTS `ccdata_empty_testdata`||
+DELIMITER ;||
 
 SET FOREIGN_KEY_CHECKS = 1;

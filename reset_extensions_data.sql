@@ -23,9 +23,12 @@ INSERT INTO `tmp_trunctables` VALUES ('magemonkey_ecommerce360');
 -- TemplatesMaster.com Helpmate
 INSERT INTO `tmp_trunctables` VALUES ('tm_helpmate_theard'), ('tm_helpmate_ticket');
 
-INSERT INTO `tmp_trunctables` VALUES ('mytest');
 -- Go ahead, add lines for more extensions and submit as pull request!
 -- INSERT INTO `tmp_trunctables` VALUES ('');
+
+-- Test nonexistant table:
+-- INSERT INTO `tmp_trunctables` VALUES ('mytestfoobar');
+
 
 -- This is the sproc which runs through the tmp table and truncates
 DELIMITER ||

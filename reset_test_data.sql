@@ -108,6 +108,7 @@ INSERT INTO `tmp_trunctables` VALUES
 	('sales_order_aggregated_created'),
 	('sales_order_aggregated_updated'),
 	('sales_order_tax'),
+	('sales_order_tax_item'),
 	('sales_payment_transaction'),
 	('sales_recurring_profile'),
 	('sales_recurring_profile_order'),

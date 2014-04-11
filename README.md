@@ -1,6 +1,7 @@
 ## Magento reset scripts
 
-**Why?** Installing an extension just to delete test orders before site launch seems excessive. Simply import these sql scripts to reset testdata in Magento stores.
+**Why?**
+Installing an extension just to delete test orders before site launch seems excessive. Simply import these sql scripts to reset testdata in Magento stores.
 
 **How?**
 Download & make changes as you like. Use with your favourite mysql admin tool. Beware, these all delete data, so you should of course confirm backups before using any of these.
@@ -12,5 +13,6 @@ Download & make changes as you like. Use with your favourite mysql admin tool. B
 
 - **reset_extensions_data** - empties tables holding customer data for various extensions.
 
+- **reset_log_data** - will empty the Magento logs for visitors, urls etc. These tables usually grow quite large over time and not all merchants are interested in the data.
 
 Please contribute! Improved code, more extensions, tips or constructive criticism are all very welcome

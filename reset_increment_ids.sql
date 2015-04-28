@@ -8,7 +8,7 @@
 SET @id_store   := '3';      -- The id of the Mage store you wish to change. Run this script for each store.
 SET @id_prefix  := NULL;     -- Prefix for new numbers, alphanumeric is OK, NULL or numeric preferrable
 SET @nr_nextid  := 10101;    -- Next order id. Match padlength! Mage default 00000001 = 8 digits, means @nr_padding should be 8.
-SET @nr_padding := 5;        -- How many digits did you set in nr_nextid? Mage default 8
+SET @nr_padding := char_length(@nr_nextid);  -- Automatic. Override if needed. How many digits was set for nr_nextid? Mage default 8
 -- The set values will result in next id = #310102 --
 -- End config section. No need to edit below --
 
@@ -29,7 +29,7 @@ UPDATE `eav_entity_type`
 DELIMITER ||
 DROP PROCEDURE IF EXISTS `ccdata_set_defaults`||
 
-CREATE PROCEDURE ccdata_set_defaults (IN id_store INT(5), IN id_prefix VARCHAR(15), IN nr_nextid INT(15))
+CREATE PROCEDURE ccdata_set_defaults (IN id_store INT(5), IN id_prefix VARCHAR(15), IN nr_nextid VARCHAR(15))
 MODIFIES SQL DATA
 BEGIN
 	DECLARE id_type,done INT;
@@ -41,7 +41,7 @@ BEGIN
 		FETCH cur_1 INTO id_type;
 		DELETE FROM `eav_entity_store` WHERE `entity_type_id` = id_type AND `store_id` = id_store;
 		INSERT INTO `eav_entity_store` (`entity_type_id`, `store_id`, `increment_prefix`, `increment_last_id`)
-			VALUES(id_type, id_store, id_prefix, CONCAT(id_store, nr_nextid));
+			VALUES(id_type, id_store, id_prefix, CONCAT(CAST(id_store AS CHAR), nr_nextid));
 		UNTIL done = 1
 	END REPEAT;
 	CLOSE cur_1;
